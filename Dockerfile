@@ -58,7 +58,7 @@
 # CMD ["/bin/bash", "/app/start_services.sh"]
 
 
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Set noninteractive to avoid tzdata prompts
 ENV DEBIAN_FRONTEND=noninteractive
