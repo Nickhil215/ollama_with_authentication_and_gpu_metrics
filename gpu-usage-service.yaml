@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-metrics-api-service
+  namespace: gpu-usage-autoscale
+  labels:
+    app: ollama-metrics-api
+spec:
+  selector:
+    app: ollama-metrics-api
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP
