@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-metrics-api-deployment
+  namespace: gpu-usage-autoscale
+  labels:
+    app: ollama-metrics-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-metrics-api
+  template:
+    metadata:
+      labels:
+        app: ollama-metrics-api
+    spec:
+      containers:
+      - name: ollama-metrics-api
+        image: nikhilv215/gpu_metrics:latest
+        ports:
+        - containerPort: 8080
+      nodeSelector:
+        gpu.nvidia.com/class: H100  # Ensure this matches the GPU nodes in your cluster
